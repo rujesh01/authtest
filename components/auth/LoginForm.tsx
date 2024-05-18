@@ -32,7 +32,9 @@ const LoginForm = () => {
 
   function onSubmit(values: z.infer<typeof LoginSchema>) {
     setTransition(() => {
-      Login(values);
+      Login(values).then((data)=>{
+        
+      })
     });
   }
 

@@ -21,12 +21,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async signIn({user, account}){
       if(account?.provider !== "credentials") return true;
+      console.log(user)
+// 
+      // const existingUser = await getUserById();
 
-      const existingUser = await getUserById(user.id);
+      // if (!existingUser?.emailVerified) return false;
 
-      if (!existingUser?.emailVerified) return false;
-
-      //todo : ass 2fa
+      // //todo : ass 2fa
       return true;
     },
     async session({ token, session }) {
